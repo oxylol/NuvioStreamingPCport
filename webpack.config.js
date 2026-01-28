@@ -30,6 +30,8 @@ const babelLoaderConfiguration = {
     loader: 'babel-loader',
     options: {
       cacheDirectory: true,
+      babelrc: false,
+      configFile: false,
       presets: [
         ['@babel/preset-env', { targets: { electron: '28' } }],
         ['@babel/preset-react', { runtime: 'automatic' }],
