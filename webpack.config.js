@@ -36,7 +36,6 @@ const babelLoaderConfiguration = {
         '@babel/preset-typescript',
       ],
       plugins: [
-        'react-native-web',
         ['@babel/plugin-transform-runtime', { regenerator: true }],
       ],
     },
@@ -90,7 +89,8 @@ module.exports = (env, argv) => {
     entry: path.resolve(appDirectory, 'index.web.tsx'),
     output: {
       path: path.resolve(appDirectory, 'dist'),
-      filename: isDev ? 'bundle.js' : 'bundle.[contenthash].js',
+      filename: isDev ? '[name].bundle.js' : '[name].[contenthash].js',
+      chunkFilename: isDev ? '[name].chunk.js' : '[name].[contenthash].chunk.js',
       publicPath: '/',
       clean: true,
     },
